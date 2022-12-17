@@ -47,15 +47,20 @@ class App extends Component {
     };
 
     render() {
-        const { filter } = this.state;
+        const { contacts, filter } = this.state;
         const filtered = this.filteredContacts();
+        const numberOfSearch = contacts.length;
         return (
             <div className={css.app}>
                 <h1>Phonebook</h1>
                 <ContactForm onSubmit={this.addContact} />
 
                 <h2>Contacts</h2>
-                <Filter value={filter} onChange={this.changeFilter} />
+                <Filter
+                    value={filter}
+                    onChange={this.changeFilter}
+                    result={numberOfSearch}
+                />
                 <ContactList
                     contacts={filtered}
                     deleteContact={this.deleteContact}

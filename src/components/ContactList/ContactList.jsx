@@ -8,7 +8,6 @@ class ContactList extends Component {
         const { contacts, deleteContact } = this.props;
         return (
             <>
-                <span>Number contacts: {contacts.length}</span>
                 <ul>
                     {contacts.map(({ id, name, number }) => (
                         <li key={id}>

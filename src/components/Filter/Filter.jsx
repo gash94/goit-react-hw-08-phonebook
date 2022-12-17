@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 class Filter extends Component {
     render() {
-        const { value, onChange } = this.props;
+        const { value, onChange, result } = this.props;
         return (
             <div>
                 <label>
@@ -17,6 +17,7 @@ class Filter extends Component {
                         placeholder="Enter name"
                     />
                 </label>
+                <p>Number contacts: {result}</p>
             </div>
         );
     }
@@ -25,6 +26,7 @@ class Filter extends Component {
 Filter.propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func,
+    result: PropTypes.number,
 };
 
 export default Filter;
