@@ -6,6 +6,7 @@ import css from "./Filter.module.css";
 class Filter extends Component {
     render() {
         const { value, onChange, result } = this.props;
+
         return (
             <div className={css.filter}>
                 <label className={css.label}>
