@@ -17,6 +17,7 @@ class App extends Component {
         ],
         filter: "",
     };
+
     addContact = ({ name, number }) => {
         const contact = {
             id: nanoid(),
@@ -49,22 +50,24 @@ class App extends Component {
     render() {
         const { contacts, filter } = this.state;
         const filtered = this.filteredContacts();
-        const numberOfSearch = contacts.length;
+        let numberOfSearch = contacts.length;
         return (
             <div className={css.app}>
                 <h1>Phonebook</h1>
                 <ContactForm onSubmit={this.addContact} />
 
                 <h2>Contacts</h2>
-                <Filter
-                    value={filter}
-                    onChange={this.changeFilter}
-                    result={numberOfSearch}
-                />
-                <ContactList
-                    contacts={filtered}
-                    deleteContact={this.deleteContact}
-                />
+                <div className={css.contactsBox}>
+                    <Filter
+                        value={filter}
+                        onChange={this.changeFilter}
+                        result={numberOfSearch}
+                    />
+                    <ContactList
+                        contacts={filtered}
+                        deleteContact={this.deleteContact}
+                    />
+                </div>
             </div>
         );
     }
