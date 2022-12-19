@@ -32,6 +32,7 @@ class App extends Component {
     changeFilter = (e) => {
         this.setState({ filter: e.currentTarget.value });
     };
+
     filteredContacts = () => {
         const { filter, contacts } = this.state;
         const normalizedCase = filter.toLowerCase();

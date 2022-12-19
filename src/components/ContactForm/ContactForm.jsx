@@ -26,6 +26,7 @@ class ContactForm extends Component {
             number: "",
         }));
     };
+
     render() {
         const { name, number } = this.state;
         return (
