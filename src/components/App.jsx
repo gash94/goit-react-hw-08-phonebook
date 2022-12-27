@@ -9,12 +9,7 @@ import Filter from "./Filter/Filter";
 
 class App extends Component {
     state = {
-        contacts: [
-            { id: "id-1", name: "Rosie Simpson", number: "459-132-563" },
-            { id: "id-2", name: "Hermione Kline", number: "443-892-122" },
-            { id: "id-3", name: "Eden Clements", number: "645-127-729" },
-            { id: "id-4", name: "Annie Copeland", number: "227-921-262" },
-        ],
+        contacts: [],
         filter: "",
     };
 
@@ -60,6 +55,24 @@ class App extends Component {
             contacts: prevState.contacts.filter((contact) => contact.id !== id),
         }));
     };
+
+    componentDidMount() {
+        const contacts = localStorage.getItem("contacts");
+        const parsedContacts = JSON.parse(contacts);
+
+        if (parsedContacts) {
+            this.setState({ contacts: parsedContacts });
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.contacts !== prevState.contacts) {
+            localStorage.setItem(
+                "contacts",
+                JSON.stringify(this.state.contacts)
+            );
+        }
+    }
 
     render() {
         const { filter } = this.state;
