@@ -7,7 +7,7 @@ import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./ContactList/ContactList";
 import Filter from "./Filter/Filter";
 
-function App() {
+const App = () => {
     const [contacts, setContacts] = useState(
         JSON.parse(localStorage.getItem("contacts")) ?? []
     );
@@ -41,16 +41,16 @@ function App() {
         setContacts((prevContacts) => [...prevContacts, contact]);
     };
 
-    function changeFilter(e) {
+    const changeFilter = (e) => {
         setFilter(e.currentTarget.value);
-    }
+    };
 
-    function filteredContacts() {
+    const filteredContacts = () => {
         const normalizedCase = filter.toLowerCase();
         return contacts.filter((contact) =>
             contact.name.toLowerCase().includes(normalizedCase)
         );
-    }
+    };
 
     const deleteContact = (id) => {
         setContacts((prevState) =>
@@ -77,6 +77,6 @@ function App() {
             </div>
         </div>
     );
-}
+};
 
 export default App;

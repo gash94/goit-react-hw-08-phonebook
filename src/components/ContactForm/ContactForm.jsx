@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import css from "./ContactForm.module.css";
 
-function ContactForm({ onSubmit }) {
+const ContactForm = ({ onSubmit }) => {
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
 
@@ -68,7 +68,7 @@ function ContactForm({ onSubmit }) {
             </form>
         </>
     );
-}
+};
 
 ContactForm.propTypes = {
     name: PropTypes.string,
