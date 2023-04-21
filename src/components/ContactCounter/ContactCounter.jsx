@@ -14,7 +14,7 @@ export const ContactCounter = () => {
             }
             return acc;
         },
-        { add: 0 }
+        { add: 1 }
     );
 
     return (
