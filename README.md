@@ -1,3 +1,3 @@
-## Phonebook application with localstorage in REACT
+## Phonebook application written with React and Redux toolkit
 
-### [DEMO](https://gash94.github.io/goit-react-hw-04-phonebook/)
+### [DEMO](https://gash94.github.io/goit-react-hw-06-phonebook/)
