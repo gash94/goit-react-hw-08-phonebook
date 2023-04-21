@@ -1,9 +1,9 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const contactsInitialState = [
-    { id: 0, name: "John", number: "123-123-123" },
-    { id: 1, name: "Elie", number: "123-123-123" },
-    { id: 2, name: "Max", number: "123-123-123" },
+    { id: "0", name: "John", number: "+120 654-534-623" },
+    { id: "1", name: "Elie", number: "+23 764 800 333" },
+    { id: "2", name: "Max", number: "(12) 44 667 80" },
 ];
 
 const contactsSlice = createSlice({

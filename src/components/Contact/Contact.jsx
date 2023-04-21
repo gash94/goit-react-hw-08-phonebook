@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { MdClose } from "react-icons/md";
 
 import { deleteContact } from "../../redux/contactsSlice";
+import PropTypes from "prop-types";
 
 import css from "./Contact.module.css";
 
@@ -18,4 +19,11 @@ export const Contact = ({ contact }) => {
             </button>
         </>
     );
+};
+Contact.propTypes = {
+    contact: PropTypes.shape({
+        name: PropTypes.string,
+        number: PropTypes.string,
+        id: PropTypes.string,
+    }),
 };
