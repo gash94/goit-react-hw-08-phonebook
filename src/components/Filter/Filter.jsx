@@ -15,10 +15,11 @@ export const Filter = () => {
                 Filter
                 <input
                     className={css.input}
+                    autoComplete="off"
                     type="search"
                     name="filter"
+                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                     placeholder="Enter name"
-                    pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
                     onChange={handleFilterChange}
                 />
             </label>

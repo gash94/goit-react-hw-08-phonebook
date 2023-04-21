@@ -2,7 +2,6 @@
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
-// import { ContactCounter } from "./ContactCounter/ContactCounter";
 
 import css from "./App.module.css";
 const App = () => {
@@ -23,7 +22,6 @@ const App = () => {
             <h2>Contacts</h2>
             <div className={css.contactsBox}>
                 <Filter />
-                {/* <ContactCounter /> */}
                 <ContactList />
             </div>
         </div>

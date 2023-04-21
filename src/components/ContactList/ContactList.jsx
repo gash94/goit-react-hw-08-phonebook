@@ -13,13 +13,24 @@ export const ContactList = () => {
     });
     return (
         <>
-            <ul className={css.list}>
-                {visibileContacts.map((contact) => (
-                    <li className={css.item} key={contact.id}>
-                        <Contact contact={contact} />
-                    </li>
-                ))}
-            </ul>
+            {contacts.length <= visibileContacts.length ? (
+                <p>Number of contacts: {contacts.length}</p>
+            ) : (
+                <p>Contacts found: {visibileContacts.length}</p>
+            )}
+            {contacts.length === 0 ? (
+                <p>No contacts yet 🙁</p>
+            ) : contacts !== "" && visibileContacts.length === 0 ? (
+                <>No contacts found 😞 </>
+            ) : (
+                <ul className={css.list}>
+                    {visibileContacts.map((contact) => (
+                        <li className={css.item} key={contact.id}>
+                            {<Contact contact={contact} />}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </>
     );
 };
