@@ -1,9 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import { useDispatch } from "react-redux";
+import { setStatusFilter } from "../../redux/filterSlice";
 import css from "./Filter.module.css";
 
-const Filter = ({ value, onChange, result }) => {
+export const Filter = () => {
+    const dispatch = useDispatch();
+
+    const handleFilterChange = (e) => {
+        dispatch(setStatusFilter(e.target.value));
+    };
+
     return (
         <div className={css.filter}>
             <label className={css.label}>
@@ -11,20 +16,12 @@ const Filter = ({ value, onChange, result }) => {
                 <input
                     className={css.input}
                     type="search"
-                    value={value}
-                    onChange={onChange}
+                    name="filter"
                     placeholder="Enter name"
+                    pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
+                    onChange={handleFilterChange}
                 />
             </label>
-            <p>Number of contacts: {result}</p>
         </div>
     );
 };
-
-Filter.propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func,
-    result: PropTypes.number.isRequired,
-};
-
-export default Filter;

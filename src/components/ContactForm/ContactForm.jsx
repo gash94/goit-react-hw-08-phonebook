@@ -1,32 +1,32 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
+
+import { getContacts } from "../../redux/selectors";
 
 import css from "./ContactForm.module.css";
 
-const ContactForm = ({ onSubmit }) => {
-    const [name, setName] = useState("");
-    const [number, setNumber] = useState("");
-
-    const handleInputChange = (e) => {
-        const prop = e.currentTarget.name;
-        switch (prop) {
-            case "name":
-                setName(e.currentTarget.value);
-                break;
-            case "number":
-                setNumber(e.currentTarget.value);
-                break;
-            default:
-                throw new Error("Error");
-        }
-    };
-
+export const ContactForm = () => {
+    const dispatch = useDispatch();
+    const contacts = useSelector(getContacts);
     const handleSubmit = (e) => {
         e.preventDefault();
+        const name = e.target.elements.name.value;
+        const number = e.target.elements.number.value;
+        const normalizedCase = name.toLowerCase();
+        let isAdded = false;
 
-        onSubmit({ name, number });
-        setName("");
-        setNumber("");
+        contacts.forEach((el) => {
+            if (el.name.toLowerCase() === normalizedCase) {
+                alert(`${name} is already in contacts`);
+                isAdded = true;
+            }
+        });
+
+        if (isAdded) {
+            return;
+        }
+        dispatch(addContact(name, number));
+        e.target.reset();
     };
 
     return (
@@ -39,10 +39,8 @@ const ContactForm = ({ onSubmit }) => {
                         autoComplete="off"
                         type="text"
                         name="name"
-                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                        pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                        value={name}
-                        onChange={handleInputChange}
                         placeholder="e.g. John Doe"
                         required
                     />
@@ -56,8 +54,6 @@ const ContactForm = ({ onSubmit }) => {
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        value={number}
-                        onChange={handleInputChange}
                         placeholder="e.g. 560-432-234"
                         required
                     />
@@ -69,11 +65,3 @@ const ContactForm = ({ onSubmit }) => {
         </>
     );
 };
-
-ContactForm.propTypes = {
-    name: PropTypes.string,
-    number: PropTypes.string,
-    onSubmit: PropTypes.func.isRequired,
-};
-
-export default ContactForm;
