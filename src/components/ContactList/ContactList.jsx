@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Contact } from "../Contact/Contact";
 import { getStatusFilter, getContacts } from "../../redux/selectors";
+import { motion, AnimatePresence } from "framer-motion";
 
 import css from "./ContactList.module.css";
 
@@ -23,11 +24,33 @@ export const ContactList = () => {
                 <>No contacts found 😞 </>
             ) : (
                 <ul className={css.list}>
-                    {visibileContacts.map((contact) => (
-                        <li className={css.item} key={contact.id}>
-                            {<Contact contact={contact} />}
-                        </li>
-                    ))}
+                    <AnimatePresence>
+                        {visibileContacts.reverse().map((contact) => (
+                            <motion.li
+                                className={css.item}
+                                key={contact.id}
+                                initial={{
+                                    y: -50,
+                                    opacity: 0,
+                                }}
+                                animate={{
+                                    y: 0,
+                                    opacity: 1,
+                                    transition: {
+                                        duration: 0.5,
+                                    },
+                                }}
+                                exit={{
+                                    x: 50,
+                                    opacity: 0,
+                                    transition: {
+                                        duration: 0.2,
+                                    },
+                                }}>
+                                {<Contact contact={contact} />}
+                            </motion.li>
+                        ))}
+                    </AnimatePresence>
                 </ul>
             )}
         </>
