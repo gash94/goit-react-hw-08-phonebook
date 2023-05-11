@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Contact } from "../Contact/Contact";
-import { getStatusFilter, getContacts } from "../../redux/selectors";
+import { getStatusFilter, getContacts } from "../../redux/contacts/selectors";
 import { motion, AnimatePresence } from "framer-motion";
 
 import css from "./ContactList.module.css";
