@@ -12,9 +12,15 @@ img {
 }
 .item {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: none;
+    height: 100px;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
     border-radius: 0px;
     transition-property: background-color, box-shadow, border-radius;
     transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -33,12 +39,6 @@ img {
     width: 160px;
     text-align: right;
     font-weight: bold;
-}
-.wrapper {
-    display: flex;
-    align-items: center;
-
-    padding: 8px 0;
 }
 
 .btn {

@@ -21,7 +21,7 @@ export const ContactList = () => {
             {contacts.length === 0 ? (
                 <p>No contacts yet 🙁</p>
             ) : contacts !== "" && visibileContacts.length === 0 ? (
-                <>No contacts found 😞 </>
+                <p>No contacts found 😞 </p>
             ) : (
                 <ul className={css.list}>
                     <AnimatePresence>

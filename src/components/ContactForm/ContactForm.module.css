@@ -1,12 +1,5 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 450px;
-    background-color: rgb(108, 168, 224);
-    border: 3px double rgba(28, 110, 164, 0.83);
-    border-radius: 30px;
-    box-shadow: 5px 4px 9px 0px rgba(0, 0, 0, 0.65);
+    display: inline-flex;
 }
 .label {
     display: inline-flex;
@@ -25,10 +18,9 @@
 }
 .button {
     display: block;
-    height: 40px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 1rem;
     border: 1px solid #000;
     border-radius: 5px;
     background-color: rgba(28, 110, 164, 0.83);

@@ -1,18 +1,15 @@
 .list {
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 12px 3px;
-    margin-top: 0;
-    margin-bottom: 10px;
+    flex-wrap: wrap;
     font-size: 1.4rem;
     list-style-type: circle;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 .item {
     display: flex;
-    padding: 0 5px;
+    margin: 10px;
+    padding: 10px 10px;
     justify-content: space-between;
 }
 ::-webkit-scrollbar {
