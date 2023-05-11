@@ -1,3 +1,3 @@
-## Phonebook written in react using redux toolkit and mockapi.io for backend
+## Phonebook 
 
-### [DEMO](https://gash94.github.io/goit-react-hw-07-phonebook/)
+### [DEMO](https://gash94.github.io/goit-react-hw-08-phonebook/)
