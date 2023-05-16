@@ -1,15 +1,19 @@
+import { ButtonGroup, Button } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import css from "./AuthNav.module.css";
 
 export const AuthNav = () => {
     return (
-        <div>
-            <NavLink className={css.link} to="/register">
+        <ButtonGroup>
+            <Button
+                variant="outline"
+                colorScheme="blue"
+                as={NavLink}
+                to="/register">
                 Register
-            </NavLink>
-            <NavLink className={css.link} to="/login">
+            </Button>
+            <Button colorScheme="blue" as={NavLink} to="/login">
                 Log In
-            </NavLink>
-        </div>
+            </Button>
+        </ButtonGroup>
     );
 };
