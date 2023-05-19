@@ -24,7 +24,17 @@ export const RegisterForm = () => {
             h="80vh"
             justifyContent="center"
             alignItems="center">
-            <form onSubmit={handleSubmit}>
+            <Box
+                as="form"
+                onSubmit={handleSubmit}
+                maxW="auto"
+                borderWidth="2px"
+                borderRadius="lg"
+                overflow="hidden"
+                p="5"
+                m="2"
+                backdropFilter="auto"
+                backdropBlur="20px">
                 <FormLabel>
                     Username
                     <Input
@@ -42,7 +52,7 @@ export const RegisterForm = () => {
                     <Input type="password" name="password" />
                 </FormLabel>
                 <Button type="submit">Register</Button>
-            </form>
+            </Box>
         </Box>
     );
 };

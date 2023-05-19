@@ -8,14 +8,14 @@ import {
     Box,
     Stack,
     Flex,
-    Image,
+    useColorModeValue,
 } from "@chakra-ui/react";
-import { CloseIcon } from "@chakra-ui/icons";
-import { faker } from "@faker-js/faker";
+import { CloseIcon, PhoneIcon } from "@chakra-ui/icons";
 
 export const Contact = ({ contact }) => {
     const dispatch = useDispatch();
-    const avatar = faker.image.avatar();
+
+    const firstLetter = contact.name[0];
 
     const handleDelete = () => dispatch(deleteContact(contact.id));
 
@@ -26,19 +26,30 @@ export const Contact = ({ contact }) => {
             borderRadius="lg"
             overflow="hidden"
             p={5}
-            m={2}>
+            m={2}
+            backdropFilter="auto"
+            backdropBlur="20px">
             <Stack align={"start"} spacing={2}>
-                <Flex w={150} h={150} align="center" justify="center">
-                    <Image
-                        borderRadius="full"
-                        boxSize="150px"
-                        src={avatar}
-                        alt={contact.name}
-                    />
+                <Flex
+                    w={150}
+                    h={150}
+                    align="center"
+                    justify="center"
+                    color="white"
+                    rounded="full"
+                    bg={useColorModeValue("gray.400", "gray.600")}>
+                    <Heading
+                        mb={2}
+                        fontSize="8xl"
+                        fontWeight="bold"
+                        textTransform="uppercase">
+                        {firstLetter}
+                    </Heading>
                 </Flex>
                 <Box mt={2}>
                     <Heading size="md">{contact.name}</Heading>
-                    <Text mt={1} fontSize={"sm"}>
+                    <Text mt={1} fontSize="md">
+                        <PhoneIcon mr="2" color="gray.300" />
                         {contact.number}
                     </Text>
                 </Box>

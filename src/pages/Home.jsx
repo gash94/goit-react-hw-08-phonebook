@@ -8,9 +8,9 @@ export default function Home() {
         <Box maxW="38rem">
             <Heading
                 mb={4}
-                bgGradient="linear(to-l, blue.300, blue.800)"
+                bgGradient="linear(to-l, blue.200, gray.500)"
+                fontSize="5xl"
                 bgClip="text"
-                fontSize="6xl"
                 fontWeight="extrabold">
                 Welcome to the PhoneBook app!
             </Heading>

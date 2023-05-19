@@ -23,7 +23,17 @@ export const LoginForm = () => {
             h="80vh"
             justifyContent="center"
             alignItems="center">
-            <Box border="solid" p="3" as="form" onSubmit={handleSubmit}>
+            <Box
+                as="form"
+                onSubmit={handleSubmit}
+                maxW="auto"
+                borderWidth="2px"
+                borderRadius="lg"
+                overflow="hidden"
+                p="5"
+                m="2"
+                backdropFilter="auto"
+                backdropBlur="20px">
                 <FormLabel>
                     Email
                     <Input type="email" name="email" />

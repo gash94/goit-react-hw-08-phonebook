@@ -16,7 +16,6 @@ import {
     Button,
     useDisclosure,
     Flex,
-    Spacer,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
@@ -30,12 +29,17 @@ const Contacts = () => {
     return (
         <>
             <Flex
-                minWidth="max-content"
                 alignItems="center"
-                justifyContent="center">
+                justifyContent="start"
+                wrap="wrap"
+                backdropFilter="auto"
+                backdropBlur="20px"
+                borderWidth="2px"
+                borderRadius="lg"
+                p="5">
                 <Filter />
-                <Spacer />
-                <Button rightIcon={<AddIcon />} onClick={onOpen}>
+
+                <Button mt="7" ml="5" rightIcon={<AddIcon />} onClick={onOpen}>
                     Add contact
                 </Button>
                 <Modal

@@ -22,7 +22,7 @@ export const Filter = () => {
 
     const handleFilterChange = (e) => {
         setIsFilterLoading(true);
-        dispatch(setStatusFilter(e.target.value));
+        dispatch(setStatusFilter(e.target.value.toLowerCase()));
         setTimeout(() => {
             setIsFilterLoading(false);
         }, 500);
@@ -53,11 +53,9 @@ export const Filter = () => {
                         type="text"
                         name="key"
                         value={filter}
-                        required
                         variant="flushed"
                         pl="16"
                         onChange={handleFilterChange}
-                        _hover={{ fontWeight: "semibold" }}
                     />
                     <InputRightElement
                         children={
