@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
-import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript, DarkMode } from "@chakra-ui/react";
 import theme from "./theme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -14,9 +14,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <PersistGate loading={null} persistor={persistor}>
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <ChakraProvider theme={theme}>
-                        <ColorModeScript
-                            initialColorMode={theme.config.initialColorMode}
-                        />
                         <App />
                     </ChakraProvider>
                 </BrowserRouter>
