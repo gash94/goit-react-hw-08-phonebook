@@ -48,7 +48,14 @@ export const ContactList = () => {
                                         transition: {
                                             duration: 0.2,
                                         },
-                                    }}>
+                                    }}
+                                    borderWidth="2px"
+                                    borderRadius="lg"
+                                    overflow="hidden"
+                                    p={5}
+                                    m={2}
+                                    backdropFilter="auto"
+                                    backdropBlur="20px">
                                     {<Contact contact={contact} />}
                                 </ListItem>
                             ))}

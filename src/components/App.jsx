@@ -6,7 +6,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { RestrictedRoute } from "./RestrictedRoute";
 import { refreshUser } from "../redux/auth/operations";
 import { useAuth } from "../hooks";
-import { Spinner } from "@chakra-ui/react";
+import { Center, Spinner } from "@chakra-ui/react";
 
 const HomePage = lazy(() => import("../pages/Home"));
 const RegisterPage = lazy(() => import("../pages/Register"));
@@ -22,7 +22,15 @@ export const App = () => {
     }, [dispatch]);
 
     return isRefreshing ? (
-        <Spinner />
+        <Center pt="50vh">
+            <Spinner
+                thickness="4px"
+                speed="0.55s"
+                emptyColor="gray.200"
+                color="blue.500"
+                size="xl"
+            />
+        </Center>
     ) : (
         <Routes>
             <Route path="/" element={<Layout />}>

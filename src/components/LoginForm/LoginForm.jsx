@@ -1,10 +1,19 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
-import { Box, Button, FormLabel, Input } from "@chakra-ui/react";
+import {
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    Box,
+    Button,
+    FormLabel,
+    Input,
+} from "@chakra-ui/react";
+import { selectError } from "../../redux/auth/selectors";
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
-
+    const error = useSelector(selectError);
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -36,13 +45,19 @@ export const LoginForm = () => {
                 backdropBlur="20px">
                 <FormLabel>
                     Email
-                    <Input type="email" name="email" />
+                    <Input required type="email" name="email" />
                 </FormLabel>
                 <FormLabel>
                     Password
-                    <Input type="password" name="password" />
+                    <Input required type="password" name="password" />
                 </FormLabel>
                 <Button type="submit">Log In</Button>
+                {error && (
+                    <Alert mt="2" status="error">
+                        <AlertIcon />
+                        <AlertTitle>Wrong login or password.</AlertTitle>
+                    </Alert>
+                )}
             </Box>
         </Box>
     );

@@ -5,7 +5,7 @@ import { useAuth } from "../hooks";
 export default function Home() {
     const { isLoggedIn } = useAuth();
     return (
-        <Box maxW="38rem">
+        <Box maxW="38rem" mt="100">
             <Heading
                 mb={4}
                 bgGradient="linear(to-l, blue.200, gray.500)"
